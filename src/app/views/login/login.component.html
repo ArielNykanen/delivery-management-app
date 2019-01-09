@@ -1,0 +1,34 @@
+<div id="login-wraper">
+    <div class="row">
+      <div class="col-md-4"></div>
+        <div class="col-md-4 my-5" >
+          <div class="form-group" align=center>
+            <h5 style="color:white;">
+                התחברות למערכת</h5>
+              </div>
+                <form class="login" (ngSubmit)='onLogin()' [formGroup]='loginForm'>
+                <input formControlName='username' type="text" placeholder="שם משתמש" />
+                <input formControlName='password' type="password" placeholder="סיסמה" />
+                <div class="form-group">
+                  <input type="submit" value="כניסה" class="btn btn-success btn-sm" />
+                </div>
+                <div class="remember-forgot">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input formControlName="remember" type="checkbox" />
+                                    זכור אותי
+                                </label>
+                            </div>
+                        </div>
+                        <!-- todo check if you really need it<div class="col-md-6 forgot-pass-content">
+                            <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                        </div> -->
+                    </div>
+                </div>
+                </form>
+        </div>
+      <div class="col-md-4"></div>
+    </div>
+</div>

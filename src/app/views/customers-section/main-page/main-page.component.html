@@ -1,0 +1,66 @@
+<form (ngSubmit)="onAddDelivery()" [formGroup]='addDeliveryForm'>
+<app-customers-section></app-customers-section>
+<div class="row  my-5">
+  <div class="form-group col-md-12 my-5" align=center>
+    <h1 id="add-delivery-header" >הוספת משלוחים</h1>
+  </div>
+  <div class="col-md-2">
+    <!-- warns -->
+    <span class="text-danger" *ngIf="addDeliveryForm.get('customerPhone') &&
+    addDeliveryForm.get('customerPhone').invalid &&
+    addDeliveryForm.get('customerPhone').touched">!שדה טל רייק</span>
+    <!-- warns -->
+    <span class="text-danger" *ngIf="addDeliveryForm.get('customerStreet') && 
+    addDeliveryForm.get('customerStreet').invalid && 
+    addDeliveryForm.get('customerStreet').touched">!שדה רחוב רייק</span>
+    <span class="text-danger" >!שדה רחוב רייק</span>
+    <!-- warns -->
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-success" id="basic-addon1">הוסף משלוח</button>
+  </div>
+  <div class="col-md-3 col-lg-4 input-group mb-3">
+    <input formControlName='customerPhone' type="text" class="form-control text-right" placeholder="טל">
+  </div>  
+  <div class="col-md-3">
+      <input formControlName='customerStreet' type="text" class="form-control text-right" placeholder="רחוב" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="col-md-2">
+    <select formControlName='areaSelect' class="form-control">
+      <option value="1">בחר אזור</option>
+      <option *ngFor="" value=""></option>
+    </select>
+  </div>
+    <div class="col-md-12">
+      <table class="table text-right">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">בטל</th>
+            <th scope="col">השליח מגיע ב</th>
+            <th scope="col">זמן שעבר</th>
+            <th scope="col">סטטוס</th>
+            <th scope="col">פלאפון/טלפון</th>
+            <th scope="col">רחוב</th>
+            <th scope="col">#</th>
+          </tr>
+        </thead> 
+        <tbody>
+          
+          <ng-container *ngFor='let delivery of allDeliveries; let i = index'>
+            <tr class="bg-light"> 
+              <td class="cancel-delivery  text-white"><button type="button" class="btn btn-danger">בטל משלוח</button></td>
+              <td class="cancel-delivery bg-warning text-white">{{ delivery.takeTime }}</td>
+              <td class="bg-danger text-white">{{ delivery.addedTime }}</td>
+              <td class="bg-success text-white">{{ delivery.status }}</td>
+                  <td class="bg-white text-dark">{{ delivery.phone }}</td>
+                  <td class="bg-white text-dark">{{ delivery.street }}</td>
+                  <td class="bg-white text-dark" scope="row">{{ i + 1 }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </form>
+      

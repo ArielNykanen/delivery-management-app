@@ -1,0 +1,46 @@
+  <div class="delivery-time" style="color:white;">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-header" align=center>זמן למשלוחים</div>
+      <div class='my-1' align=center>
+        <h5 class="card-title">1:30:00</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-admins" style="color:white;">
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-header" align=center>בקשה ליצירת קשר עם השליח</div>
+      <div class='my-1' align=center>
+        <button class="btn btn-danger">שלח בקשה</button>
+      </div>
+    </div>
+  </div>
+
+   <!-- ? closing time alert -->
+   <!-- <div [@slideDownAlerts]="autoClosingTimeAlert ? 'in' : 'out'" class="closing-time-alert" style="color:white;">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-header" align=center>המשלוחים נסגרים בעוד</div>
+        <div class='my-1' align=center>
+          <h5 class="card-title">{{ closingTime }}</h5>
+        </div>
+      </div>
+    </div> -->
+    <!-- ? closing time alert end -->
+
+   <!-- ? random alerts -->
+   <ng-container *ngIf="incomingAlert">
+     <div [@slideDownAlerts]="showIncoming ? 'in' : 'out'" class="random-alert">
+       <div class="card text-white {{ incomingAlert.type }} mb-3">
+         <div class="card-header" align=center>{{ incomingAlert.header }}</div>
+         <div class='my-1' align=center>
+           <h5 class="card-title">{{ incomingAlert.msg }}</h5>
+          </div>
+          <div class="alert-body my-5 text-center">
+          </div>
+          <div class="form-group my-2 text-center">
+            <button type="button" class="btn btn-primary" (click)="onNextMsg()">קיבלתי</button>
+          </div>
+      </div>
+    </div>
+  </ng-container>
+    <!-- ? random alerts end -->
